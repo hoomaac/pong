@@ -6,10 +6,9 @@ public class Bouncy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Ball ballMovement = collision.gameObject.GetComponent<Ball>();
-        if (ballMovement != null)
+        if (collision.gameObject.TryGetComponent<Ball>(out var ballMovement))
         {
-            Vector2 normalSurface = collision.GetContact(0).normal;
+            var normalSurface = collision.GetContact(0).normal;
             ballMovement.AddForce(-normalSurface * strenght);
         }
     }

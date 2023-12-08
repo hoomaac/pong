@@ -7,9 +7,9 @@ public class ScoreZone : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Ball")
+        if (collision.collider.CompareTag("Ball"))
         {
-            BaseEventData data = new BaseEventData(EventSystem.current);
+            BaseEventData data = new(EventSystem.current);
             scoreTrigger.Invoke(data);
         }
     }

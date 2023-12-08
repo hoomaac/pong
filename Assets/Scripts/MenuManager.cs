@@ -6,18 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject m_mainMenu;
+    [SerializeField] private GameObject _mainMenu;
 
-    [SerializeField] private Button m_playButton;
-    [SerializeField] private Button m_exitButton;
-    [SerializeField] private Button m_backButton;
+    [SerializeField] private Button _playButton;
+    [SerializeField] private Button _exitButton;
+    [SerializeField] private Button _backButton;
 
     private void Start()
     {
-        m_mainMenu.SetActive(true);
-        m_playButton.onClick.AddListener(PlayButtonOnClick);
-        m_exitButton.onClick.AddListener(() => {Debug.Log("Quit"); Application.Quit(); });
-        m_backButton.onClick.AddListener(BackButtonOnClick);
+        _mainMenu.SetActive(true);
+        _playButton.onClick.AddListener(PlayButtonOnClick);
+        _exitButton.onClick.AddListener(() =>
+        {
+            Debug.Log("Quit");
+            Application.Quit();
+        });
+        _backButton.onClick.AddListener(BackButtonOnClick);
     }
 
     private void PlayButtonOnClick()
@@ -27,6 +31,6 @@ public class MenuManager : MonoBehaviour
 
     private void BackButtonOnClick()
     {
-        m_mainMenu.SetActive(true);
+        _mainMenu.SetActive(true);
     }
 }

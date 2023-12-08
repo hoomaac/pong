@@ -12,24 +12,23 @@ public class SecondPlayerRacket : Racket
         {
             if (ballRigidBody.position.y > transform.position.y)
             {
-                m_rigidbody.AddForce(Vector2.up * speed);
+                rigidbody.AddForce(Vector2.up * speed);
             }
-            else if(ballRigidBody.velocity.y < transform.position.y)
+            else if (ballRigidBody.velocity.y < transform.position.y)
             {
-                m_rigidbody.AddForce(Vector2.down * speed);
+                rigidbody.AddForce(Vector2.down * speed);
             }
         }
         else
         {
             if (transform.position.y > 0.0f)
             {
-                m_rigidbody.AddForce(Vector2.down * speed);
+                rigidbody.AddForce(Vector2.down * speed);
             }
-            else if (transform.position.y  < 0.0f)
+            else if (transform.position.y < 0.0f)
             {
-                m_rigidbody.AddForce(Vector2.up * speed);
+                rigidbody.AddForce(Vector2.up * speed);
             }
         }
     }
-
 }

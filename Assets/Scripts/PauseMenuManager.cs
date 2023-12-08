@@ -22,7 +22,7 @@ public class PauseMenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.Instance.MenuInput)
+        if (InputManager.instance.MenuInput)
         {
             if (!isPaused)
             {
@@ -54,7 +54,7 @@ public class PauseMenuManager : MonoBehaviour
         m_mainMenuCanvas.SetActive(true);
         m_settingsMenuCanvas.SetActive(false);
         m_keyboardControlsCanvas.SetActive(false);
-        
+
         EventSystem.current.SetSelectedGameObject(m_mainMenuFirstSelected);
     }
 

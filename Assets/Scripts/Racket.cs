@@ -5,7 +5,7 @@ public class Racket : MonoBehaviour
 {
     public InputAction racketControls;
 
-    protected Rigidbody2D m_rigidbody;
+    protected new Rigidbody2D rigidbody;
 
     private void OnEnable()
     {
@@ -19,6 +19,6 @@ public class Racket : MonoBehaviour
 
     private void Awake()
     {
-        m_rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 }

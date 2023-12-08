@@ -8,20 +8,20 @@ public class GameManager : MonoBehaviour
     public Text secondPlayerScore;
     public Ball ballMovement;
 
-    private int m_first_player_score;
-    private int m_second_player_score;
+    private int _first_player_score;
+    private int _second_player_score;
 
     public void IncreaseFirstPlayerScore()
     {
-        m_first_player_score++;
-        firstPlayerScore.text = m_first_player_score.ToString();
-        ballMovement.ResetPosition(); 
+        _first_player_score++;
+        firstPlayerScore.text = _first_player_score.ToString();
+        ballMovement.ResetPosition();
     }
 
     public void IncreaseSecondPlayerScore()
     {
-        m_second_player_score++;
-        secondPlayerScore.text = m_second_player_score.ToString();
-        ballMovement.ResetPosition(); 
+        _second_player_score++;
+        secondPlayerScore.text = _second_player_score.ToString();
+        ballMovement.ResetPosition();
     }
 }

@@ -5,37 +5,36 @@ using UnityEngine.UI;
 public class Ball : MonoBehaviour
 {
     public float speed = 100.0f;
-    private Rigidbody2D m_rigidbody;
-    private AudioSource m_audioSource;
+    private Rigidbody2D _rigidbody;
+    private AudioSource _audioSource;
 
-    [SerializeField] private float m_count;
-    [SerializeField] private Text m_countDownText;
-    [SerializeField] private GameObject m_countDownCanvas;
-
+    [SerializeField] private float _count;
+    [SerializeField] private Text _countDownText;
+    [SerializeField] private GameObject _countDownCanvas;
 
     private void Awake()
     {
-        m_rigidbody = GetComponent<Rigidbody2D>();        
-        m_audioSource = GetComponent<AudioSource>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
 
-        m_countDownCanvas.SetActive(true);
+        _countDownCanvas.SetActive(true);
     }
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(CountDown());
     }
 
-    IEnumerator CountDown()
+    private IEnumerator CountDown()
     {
-        while (m_count > 0)
+        while (_count > 0)
         {
-            m_countDownText.text = m_count.ToString();
+            _countDownText.text = _count.ToString();
             yield return new WaitForSeconds(1);
-            m_count--;
+            _count--;
         }
-        
-        m_countDownCanvas.SetActive(false);
+
+        _countDownCanvas.SetActive(false);
         ResetPosition();
     }
 
@@ -43,24 +42,24 @@ public class Ball : MonoBehaviour
     {
         float x = Random.value < 0.5f ? -1.0f : 1.0f;
         float y = Random.value < 0.5f ? Random.Range(-1.0f, -0.5f) : Random.Range(0.5f, 1.0f);
-        Vector2 position = new Vector2(x, y);
-        m_rigidbody.AddForce(position * speed);
+        Vector2 position = new(x, y);
+        _rigidbody.AddForce(position * speed);
     }
-    
+
     public void AddForce(Vector2 force)
     {
-        m_rigidbody.AddForce(force);
+        _rigidbody.AddForce(force);
     }
 
     public void ResetPosition()
     {
-        m_rigidbody.position = Vector3.zero; 
-        m_rigidbody.velocity = Vector3.zero;
+        _rigidbody.position = Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
         AddInitForce();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        m_audioSource.Play();
+        _audioSource.Play();
     }
 }
