@@ -1751,9 +1751,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 230
-  m_count: 3
-  m_countDownText: {fileID: 113440558}
-  m_countDownCanvas: {fileID: 584363646}
+  _count: 3
+  _countDownText: {fileID: 113440558}
+  _countDownCanvas: {fileID: 584363646}
 --- !u!114 &513964615
 MonoBehaviour:
   m_ObjectHideFlags: 0
